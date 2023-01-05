@@ -1,5 +1,7 @@
 ﻿
 
+using TU_Challenge;
+
 class Program
 {
     public static void Main(string[] args)

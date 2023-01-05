@@ -15,20 +15,27 @@ namespace TU_Challenge
 
         public static List<int> GenericSort(List<int> toSort, Func<int, int, int> isInOrder)
         {
+            int numberOfInOrder = 0;
             List<int> list = toSort;
 
-            while ()
+            do
             {
+                numberOfInOrder = 0;
                 for (int i = 0; i < list.Count - 1; i++)
                 {
-                    if (isInOrder(list[i], list[i + 1]) == 1)
+                    if (isInOrder(list[i], list[i + 1]) == -1)
                     {
-                        int cash = list[i];
-                        list[i] = list[i + 1];
-                        list[i + 1] = cash;
+                        int cash = list[i + 1];
+                        list[i + 1] = list[i];
+                        list[i] = cash;
+                    }
+                    else
+                    {
+                        numberOfInOrder++;
                     }
                 }
-            }
+
+            } while (numberOfInOrder < list.Count - 1);
             return list;
         }
 
